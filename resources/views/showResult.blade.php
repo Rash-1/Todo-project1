@@ -9,6 +9,4 @@
    @else
        {{$key}} - {{$value}} <br>
    @endif
-
-
 @endforeach
