@@ -17,5 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test',[\App\Http\Controllers\CarController::class,'test']);
-
+Route::get('/cars',[CarController::class,'show']);
