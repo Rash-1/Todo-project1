@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,5 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test',[\App\Http\Controllers\CarController::class,'test']);
-
+Route::get('/cars',[CarController::class,'show']);
