@@ -11,19 +11,20 @@
 {{--@dd($item)--}}
 <div class="container mt-3">
 
-    <form method="post" action="{{route('update todo',$item)}}">
+    <form method="post" action="{{route('update todo',['todo' =>$todo])}}">
         @csrf
+        @method('put')
         <div class="mb-3 mt-3">
             <label for="title">Title:</label>
-            <input value="{{$item->title}}" type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
+            <input value="{{$todo->title}}" type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
         </div>
         <div class="mb-3">
             <label for="slug">Slug:</label>
-            <input value="{{$item->slug}}" type="text" class="form-control" id="slug" placeholder="Enter slug" name="slug">
+            <input value="{{$todo->slug}}" type="text" class="form-control" id="slug" placeholder="Enter slug" name="slug">
         </div>
         <div class="mb-3">
             <label for="description">Description:</label>
-            <input value="{{$item->description}}" type="text" class="form-control" id="description" placeholder="Enter Description" name="description">
+            <input value="{{$todo->description}}" type="text" class="form-control" id="description" placeholder="Enter Description" name="description">
         </div>
         <button type="submit" class="btn btn-primary">Edit </button>
     </form>

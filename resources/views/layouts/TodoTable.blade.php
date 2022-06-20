@@ -11,8 +11,8 @@
 
 <div class="container mt-3 ">
     <table class="table table-dark table-striped table-bordered table-hover">
-        @if(!is_iterable($result))
-            <caption>Todo number {{$result->id}} </caption>
+        @if(!is_iterable($todos))
+            <caption>Todo number {{$todos->id}} </caption>
         @else
             <caption> Todo List</caption>
         @endif
@@ -22,7 +22,7 @@
             <th scope="col">Title</th>
             <th scope="col">Slug</th>
             <th scope="col">Description</th>
-            @if(is_iterable($result))
+            @if(is_iterable($todos))
                 <th>Edit</th>
                 <th>Delete</th>
             @endif
@@ -32,7 +32,7 @@
              @yield('show todo list')
         </tbody>
     </table>
-    @if(is_iterable($result))
+    @if(is_iterable($todos))
         <div class="text-center mb-4">
              <a class="btn btn-primary col-6" href="{{route('create todo')}}">
                  Create New Todo

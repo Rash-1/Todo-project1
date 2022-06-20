@@ -1,25 +1,30 @@
 
 @extends('layouts.TodoTable')
 @section('show todo list')
-        @foreach($result as $item)
+
+        @foreach($todos as $todo)
             <tr>
                 <td>
-                     {{$item->id}}
+                     {{$todo->id}}
                 </td>
                 <td>
-                     {{$item->title}}
+                     {{$todo->title}}
                 </td>
                 <td>
-                     {{$item->slug}}
+                     {{$todo->slug}}
                 </td>
                 <td>
-                    {{$item->description}}
+                    {{$todo->description}}
                 </td>
                 <td>
-                    <a class="btn btn-warning" href="{{route('edit todo',['item'=>$item])}}">Edit</a>
+                    <a class="btn btn-warning" href="{{route('edit todo',['todo'=>$todo])}}">Edit</a>
                 </td>
                 <td>
-                    <a class="btn btn-danger" href="{{route('delete todo',[$item])}}">Delete</a>
+                    <form method="post" action="{{route('delete todo',['todo'=>$todo])}}">
+                        @csrf
+                        @method('delete')
+                        <input type="submit" class="btn btn-danger" value="Delete">
+                    </form>
                 </td>
             <tr>
         @endforeach

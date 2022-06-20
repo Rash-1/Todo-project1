@@ -9,21 +9,22 @@ class TodoController extends Controller
 {
     public function showlist()
     {
-        $result = Todo::all();
-        return view('Todo/showTodoList',['result' => $result]);
+        $todos = Todo::all();
+        return view('Todo/showTodoList',['todos' => $todos]);
     }
     public function show(Todo $todo)
     {
         return view('Todo/showTodo',['result' => $todo]);
     }
-    public function delete( Todo $todo)
+    public function delete(Todo $todo)
     {
+
         $result = $todo->delete();
         if ($result)
         {
             return redirect()->route('todo list');
         }
-        return false;
+
     }
     public function create()
     {
@@ -42,16 +43,16 @@ class TodoController extends Controller
         }
         return false;
     }
-    public function edit(Todo $item)
+    public function edit(Todo $todo)
     {
-        return view('todo/editTodo',['item' => $item]);
+        return view('todo/editTodo',['todo' => $todo]);
     }
-    public function update(Request $request,Todo $item)
+    public function update(Request $request,Todo $todo)
     {
-        $item->title = $request->title;
-        $item->slug = $request->slug;
-        $item->description = $request->description;
-        $result = $item->save();
+        $todo->title = $request->title;
+        $todo->slug = $request->slug;
+        $todo->description = $request->description;
+        $result = $todo->save();
         if ($result)
         {
             return redirect()->route('todo list');
