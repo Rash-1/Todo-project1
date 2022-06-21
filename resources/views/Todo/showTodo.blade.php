@@ -1,9 +1,9 @@
 @extends('layouts.TodoTable')
 @section('show todo list')
     <tr>
-        <td>{{$todo->id}}</td>
-        <td>{{$todo->title}}</td>
-        <td>{{$todo->slug}}</td>
-        <td>{{$todo->description}}</td>
+        <td>{{$todos->id}}</td>
+        <td>{{$todos->title}}</td>
+        <td>{{$todos->slug}}</td>
+        <td>{{$todos->description}}</td>
     </tr>
 @endsection

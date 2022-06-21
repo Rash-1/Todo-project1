@@ -11,7 +11,8 @@
 {{--@dd($item)--}}
 <div class="container mt-3">
 
-    <form method="post" action="{{route('update todo',['todo' =>$todo])}}">
+    <form method="post" action="{{route('todos.update',['todo' =>$todo])}}">
+
         @csrf
         @method('put')
         <div class="mb-3 mt-3">
@@ -24,7 +25,7 @@
         </div>
         <div class="mb-3">
             <label for="description">Description:</label>
-            <input value="{{$todo->description}}" type="text" class="form-control" id="description" placeholder="Enter Description" name="description">
+            <textarea class="form-control form-text" id="description" name="description" placeholder="Enter Description" rows="10" cols="10" >{{$todo->description}}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">Edit </button>
     </form>

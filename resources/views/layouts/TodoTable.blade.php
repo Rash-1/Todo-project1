@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<div class="container mt-3 ">
+<div class="container mt-3">
     <table class="table table-dark table-striped table-bordered table-hover">
         @if(!is_iterable($todos))
             <caption>Todo number {{$todos->id}} </caption>
@@ -34,7 +34,7 @@
     </table>
     @if(is_iterable($todos))
         <div class="text-center mb-4">
-             <a class="btn btn-primary col-6" href="{{route('create todo')}}">
+             <a class="btn btn-primary col-6" href="{{route('todos.create')}}">
                  Create New Todo
              </a>
         </div>

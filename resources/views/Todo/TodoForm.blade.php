@@ -11,7 +11,7 @@
 
 <div class="container mt-3">
 
-    <form method="post" action="{{route('store todo')}}">
+    <form method="post" action="{{route('todos.store')}}">
         @csrf
         <div class="mb-3 mt-3">
             <label for="title">Title:</label>
@@ -23,7 +23,7 @@
         </div>
         <div class="mb-3">
             <label for="description">Description:</label>
-            <input type="text" class="form-control" id="description" placeholder="Enter Description" name="description">
+            <textarea class="form-control form-text" id="description" name="description" placeholder="Enter Description" rows="10" cols="10" ></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
