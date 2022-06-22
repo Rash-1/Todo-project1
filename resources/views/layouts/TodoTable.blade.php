@@ -10,6 +10,11 @@
 <body>
 
 <div class="container mt-3">
+    @if(session()->has('message'))
+        <div class="alert alert-success text-center">
+            {{session('message')}}
+        </div>
+    @endif
     <table class="table table-dark table-striped table-bordered table-hover">
         @if(!is_iterable($todos))
             <caption>Todo number {{$todos->id}} </caption>

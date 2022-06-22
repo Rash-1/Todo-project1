@@ -47,6 +47,7 @@ class TodoController extends Controller
                      ]);
           if ($result)
           {
+              request()->session()->flash('message','Todo created successfully');
               return redirect()->route('todos.index');
           }
     }
@@ -90,6 +91,7 @@ class TodoController extends Controller
             ]);
            if ($result)
            {
+               request()->session()->flash('message','Update successfully');
                return redirect()->route('todos.index');
            }
     }
@@ -105,6 +107,7 @@ class TodoController extends Controller
         $result = $todo->delete();
         if ($result)
         {
+            request()->session()->flash('message','Delete successfully');
             return redirect()->back();
         }
         return false;
