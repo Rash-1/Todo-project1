@@ -11,6 +11,17 @@
 
 <div class="container mt-3">
 
+    @if($errors->any())
+    <div class="alert alert-dark text-danger">
+        <ol>
+        @foreach($errors->all() as $error)
+            <li>
+                {{$error}}
+            </li>
+        @endforeach
+        </ol>
+    </div>
+    @endif
     <form method="post" action="{{route('todos.store')}}">
         @csrf
         <div class="mb-3 mt-3">

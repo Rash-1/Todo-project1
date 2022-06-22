@@ -8,8 +8,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-{{--@dd($item)--}}
 <div class="container mt-3">
+    @if($errors->any())
+        <div class="alert alert-dark text-danger">
+            <ol>
+                @foreach($errors->all() as $error)
+                    <li>
+                        {{$error}}
+                    </li>
+                @endforeach
+            </ol>
+        </div>
+    @endif
 
     <form method="post" action="{{route('todos.update',['todo' =>$todo])}}">
 

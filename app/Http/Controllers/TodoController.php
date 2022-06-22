@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\TodoRequest;
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TodoController extends Controller
 {
@@ -35,18 +37,18 @@ class TodoController extends Controller
      * @param  \Illuminate\Http\Request  $request
 //     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TodoRequest $request)
     {
+        $valid_data = $request->validated();
           $result = Todo::create([
-                     'title' => $request->title,
-                     'slug' => $request->slug,
-                     'description' => $request->description,
+                     'title' => $valid_data['title'],
+                     'slug' => $valid_data['slug'],
+                     'description' => $valid_data['description']
                      ]);
           if ($result)
           {
               return redirect()->route('todos.index');
           }
-
     }
 
     /**
@@ -78,12 +80,13 @@ class TodoController extends Controller
      * @param  \App\Models\Todo  $todo
 //     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Todo $todo)
+    public function update(TodoRequest $request, Todo $todo)
     {
+        $valid_data = $request->validated();
            $result = $todo->update([
-                'title' => $request->title,
-                'slug' => $request->slug,
-                'description' => $request->description
+                'title' => $valid_data['title'],
+                'slug' => $valid_data['slug'],
+                'description' => $valid_data['description'],
             ]);
            if ($result)
            {

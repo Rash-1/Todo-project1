@@ -1,6 +1,7 @@
 
 @extends('layouts.TodoTable')
 @section('show todo list')
+
         @foreach($todos as $todo)
             <tr>
                 <td>
