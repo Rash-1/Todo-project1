@@ -165,6 +165,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'title' => 'title',
+        'slug' => 'slug',
+        'description' => 'description',
+    ],
 
 ];
