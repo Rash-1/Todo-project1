@@ -19,7 +19,7 @@ class TodoFactory extends Factory
         return [
             'title' => $this->faker->sentence('5'),
             'slug' => $this->faker->slug,
-            'description' => $this->faker->paragraph('5')
+            'description' => $this->faker->paragraph('5'),
         ];
     }
 }
